@@ -66,7 +66,7 @@ app.get('/', function(request, response) {
         // let data = db.slice(10, 20) //page2
     let data = {
         articles: db.slice(10 * (page - 1), 10 * page),
-        totlePages: Math.ceil(db.articles.length / 10),
+        totalPages: Math.ceil(db.length / 10),
         currentPage: page
     }
     response.render('home', data);

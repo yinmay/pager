@@ -1,16 +1,16 @@
 <h1>Example App: mei</h1>
 
-<nav>
-    <ol>
+<nav id="pager" data-total-pages="{{totalPages}}" data-current-page="{{currentPage}}">
+    {{!--<ol>
         <li><a href="?page=1">1</a></li>
         <li><a href="?page=2">2</a></li>
         <li><a href="?page=3">3</a></li>
         <li><a href="?page=4">4</a></li>
         <li><a href="?page=5">5</a></li>
-    </ol>
+    </ol>--}}
 </nav>
 
-{totlePages} P | now is the {}
+{{totalPages}} Page | now is the {{currentPage}} 
 <hr>
 
   {{#each articles}}
@@ -19,5 +19,29 @@
     <p>{{content}}</p>
 </article>
   {{/each}}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>></script>
 
+<script>
+    {
+ let $pager = $('#pager')
+    let pager = $pager[0]
+    let{totalPages,currentPage} = pager.dataset
+    totalPages = window.parseInt(totalPages, 10)
+    currentPage = window.parseInt(currentPage, 10)
+console.log(totalPages, currentPage)
+    let $ol = $('<ol />')
+    for(let i=0;i<totalPages;i++){
+        let $li
+        if (i+1 === currentPage){
+            $li = $(`<li><span>${i+1}</span></li>`)
+        }else{
+         $li = $(`<li><a href="?page=${i+1}">${i+1}</a></li>`)
 
+        }
+        $ol.append($li)
+    }
+            $pager.append($ol)
+    }
+   
+
+</script>
