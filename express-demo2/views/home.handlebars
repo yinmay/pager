@@ -1,0 +1,23 @@
+<h1>Example App: mei</h1>
+
+<nav>
+    <ol>
+        <li><a href="?page=1">1</a></li>
+        <li><a href="?page=2">2</a></li>
+        <li><a href="?page=3">3</a></li>
+        <li><a href="?page=4">4</a></li>
+        <li><a href="?page=5">5</a></li>
+    </ol>
+</nav>
+
+{totlePages} P | now is the {}
+<hr>
+
+  {{#each articles}}
+  <article>
+    <h1>{{title}} </h1>
+    <p>{{content}}</p>
+</article>
+  {{/each}}
+
+
